@@ -24,14 +24,15 @@ for (let hour = 9; hour < 18; hour++) {
     }
 
     let timeDiv = $('<div>');
+
     if (hour > 12) {
-        finalHour = hour - 12;
+        lastHour = hour - 12;
     } else {
-        finalHour = hour;
+        lastHour = hour;
     }
 
-    timeDiv.addClass('time-block');
-    timeDiv.text(lastHour + amPM);
+    timeBlock.addClass('time-block');
+    timeBlock.text(lastHour + amPM);
 
     
     let descriptionDiv = $("<div>");
@@ -40,7 +41,6 @@ for (let hour = 9; hour < 18; hour++) {
 
     descriptionDiv.append(textAreaForDiv);
     descriptionDiv.addClass("description");
-    descriptionDiv.css("width", "80%");
 
 
     let saveIcon = $('<i>');
@@ -52,8 +52,6 @@ for (let hour = 9; hour < 18; hour++) {
 
     
     timeBlock.append(timeDiv, descriptionDiv, saveDiv);
-
-    timeBlock.addClass("time-block");
 
     if (currentHour > hour) {
 
