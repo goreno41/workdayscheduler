@@ -6,11 +6,16 @@ $("#currentDay").text(currentDate);
 
 let amPM = "AM";
 let lastHour = " ";
+let timeMap = newMap();
 
 
 //.. Local storage retrieve after storing on bottom of code
+if (localStorage.getItem("myMap")) {
+    timeMap = newMap(JSON.parse(localStorage.myMap));
 
-
+} else {
+    let timeMap = newMap();
+}
 
 
 for (let hour = 9; hour < 18; hour++) {
@@ -75,3 +80,20 @@ for (let hour = 9; hour < 18; hour++) {
 
 
 }
+
+timeMap.forEach(function (text, key) {
+
+    let textAreaVar = "#textarea" + key;
+    document.querySelector(textAreaVar).value = text;
+
+});
+
+$(".saveBtn").on('click', function () {
+
+    let textAreaVar = "#textarea" + (this.id);
+
+    timeMap.set((this.id), document.querySelector(textAreaVar).value);
+    localStorage.myMap = JSON.stringify(Array.from(timeMap.entries()));
+
+
+});
