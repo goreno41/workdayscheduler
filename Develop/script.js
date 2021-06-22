@@ -41,7 +41,7 @@ for (let hour = 9; hour < 18; hour++) {
     }
 
     timeDiv.text(lastHour + amPM);
-    timeDiv.addClass('time-div');
+    
 
     let descriptionDiv = $("<div>");
     let textAreaForDiv = $("<textarea>");
@@ -70,7 +70,7 @@ for (let hour = 9; hour < 18; hour++) {
     } else if (currentHour < hour) {
 
         timeBlock.addClass("future");
-        textAreaForDiv.attr("placeholder", "Enter a task to complete this hour...");
+        textAreaForDiv.attr("placeholder", "Enter activity for calendar slot");
 
     } else {
 
